@@ -1,0 +1,12 @@
+<app-header/>
+<div class="continer p-10">
+    <section class="grid grid-cols-4 gap-8 mt-5">
+        @for (product of products(); track $index) {
+        <app-product
+        [product]="product"
+        (addToCard)="addToCard($event)"/>
+        }
+    </section>
+</div>
+
+
