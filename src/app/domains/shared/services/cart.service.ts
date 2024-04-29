@@ -1,5 +1,5 @@
 import { Injectable,computed, signal } from '@angular/core'
-import { Product } from '../models/product.model' 
+import { Product } from '@shared/models/product.model' 
 @Injectable({
   providedIn: 'root'
 })
@@ -34,8 +34,10 @@ export class CartService {
 
   }
 
-  addToCard(product: Product){
-    return  this.cart.update(prevList => [...prevList,product]);
+  addToCard(product: Product|null){
+    if (product) {
+      return  this.cart.update(prevList => [...prevList,product]);
+    }
   }
 
   deleteProduct(productId:number){
